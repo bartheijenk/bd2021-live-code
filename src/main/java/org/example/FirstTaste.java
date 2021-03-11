@@ -2,6 +2,8 @@ package org.example;
 
 // import ...
 
+import static java.lang.Math.abs;
+
 // PascalCasing (begint met hoofdletter)
 public class FirstTaste { // C+S+T == create test
 
@@ -21,10 +23,12 @@ public class FirstTaste { // C+S+T == create test
         //      nodig voor memory management (java is een managed language),
         //      handig voor programmeur
 
+        int abs = abs(-1);
+
         int aantalReizigers;  // declareren, eenmalig (in de scope): <type> <identifier> ( = ...);
         aantalReizigers = 30; // waarde geven
 
-        float perWagon =  aantalReizigers / 4f; // float point, 4 is literal value
+        float perWagon = aantalReizigers / 4f; // float point, 4 is literal value
 
         String reizigers = "Aantal reizigers" + " is: " + aantalReizigers;
         // reizigers = "iets anders";
@@ -40,5 +44,9 @@ public class FirstTaste { // C+S+T == create test
         System.out.println(name);
         System.out.println("doeIetsAnders");
     }
+
+}
+
+class NogEenClass {
 
 }

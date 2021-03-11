@@ -2,7 +2,13 @@ package org.example;
 
 public class Start {
 
-    // start
+    // Dit is Javadoc
+
+    /**
+     * Dit is het startpunt van mijn app.
+     *
+     * @param args de command line argumenten
+     */
     public static void main(String[] args) { //
 
         FirstTaste ft1 = new FirstTaste();
