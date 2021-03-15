@@ -1,4 +1,4 @@
-package org.example.firsttaste;
+package org.example.firsttaste.misc.firsttaste;
 
 public class Start {
 

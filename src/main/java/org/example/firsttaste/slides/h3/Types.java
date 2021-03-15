@@ -82,12 +82,15 @@ public class Types {
 
     public void testRefType() {
         Person p = new Person();
-        p.name = "Bart";
-        p.age = 17;
+        p.setName("Bart");
+        // p.age = 131;
+        p.setAge(131);
 
         Person p2 = new Person();
-        p2.name = "Bart";
-        p2.age = 17;
+        p2.setName("Bart");
+        p2.setAge(17);
+
+        System.out.println(p2.getName());
 
         System.out.println(p == p2); // waardes vergelijken
         if (p.equals(p2)) { // inhoud van twee objecten vergelijken

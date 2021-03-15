@@ -2,19 +2,42 @@ package org.example.firsttaste.slides.h3;
 
 public class Person {
 
-    String name; // STATE
-    int age;
+    // in this:
+    private String name; // STATE
+    private int age;
+
+    // access modifiers: public, protected, "" (=package-private), private
+
+    public Person() {
+        // body
+        name = "unknown";
+    }
+
+    public Person(String name) {
+        // body
+        this.name = name;
+    }
 
     // methodes  // BEHAVIOUR
 
-    // ...
-
-    public boolean equals(Object o) {
-        if (this.age == ((Person) o).age){
-            return true;
-        } else {
-            return false;
+    public void setAge(int nieuweLeeftijd) {
+        if (nieuweLeeftijd <= 130) {
+            this.age = nieuweLeeftijd;
         }
     }
+
+    public void setName(String nieuweName) {
+        this.name = nieuweName;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    // ...
 
 }

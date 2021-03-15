@@ -1,5 +1,7 @@
 package org.example.firsttaste;
 
+import org.example.firsttaste.misc.firsttaste.FirstTaste;
+
 public class FirstTasteTest {
 
     @org.junit.Test
