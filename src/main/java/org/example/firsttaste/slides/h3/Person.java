@@ -38,6 +38,14 @@ public class Person {
         return this.age;
     }
 
+    public void haveBirthday(){
+        age++;
+    }
+
+    public void haveBirthday(int i){
+        age = age + i;
+    }
+
     // ...
 
 }

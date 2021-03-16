@@ -1,5 +1,17 @@
 package org.example.firsttaste.slides.h3;
 
 public enum Compass {
-    N, E, S, W
+
+    N("North"), E("East"), S("South"), W("West");
+    // 0        1          2           3
+
+    private final String description;
+
+    Compass(String descr) {
+        this.description = descr;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
 }

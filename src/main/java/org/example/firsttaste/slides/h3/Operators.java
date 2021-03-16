@@ -59,18 +59,30 @@ public class Operators {
         System.out.println(age);
         System.out.println(incrementedAge);
 
-        //                       0000_0000_0000_0000_0000_0010_0000_0000
-        int wordtEenByte = 256;
-
-        //                                                     0000_0000
-        byte bt = (byte) wordtEenByte;
-
-        System.out.println(bt);
+        narrowing();
 
         Compass windrichting = Compass.E;
 
         naarNL(windrichting);
 
+        System.out.println(windrichting);
+        System.out.println(windrichting.ordinal());
+        System.out.println(windrichting.getDescription());
+
+        String n = Kompas.N;
+
+    }
+
+    private void narrowing() {
+        int ditWordtEenByte = 0b0000_0000_0000_0000_0000_0000_1000_0000; // 2^7 = 128
+        System.out.println(ditWordtEenByte);
+
+        // 2's complement
+        byte deByte = (byte) ditWordtEenByte; // 1010_0101 --> alle bits inverteren + 1
+        System.out.println(deByte);
+
+        // 1010_0101 = -91
+        // 0101_1011 = +91   1+2+8+16+64=91
     }
 
     public void naarNL(Compass c) {
@@ -96,7 +108,9 @@ public class Operators {
     }
 
     public static void main(String[] args) {
-        new Operators().demo();
+        Operators operators = new Operators();
+        // operators.demo();
+        operators.narrowing();
     }
-
 }
+
