@@ -10,9 +10,8 @@
 
     <properties>
         <junit.version>4.13.2</junit.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
     <!-- dependency management tool -->
@@ -63,10 +62,41 @@
     <!-- build tool -->
     <build>
         <plugins>
+            <!-- to run junit 5 tests with maven, use newer version of surefire: -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.5.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                        <phase>test</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <targetClasses>
+                        <param>org.example.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>org.example.*</param>
+                    </targetTests>
+                </configuration>
+                <dependencies>
+                    <!-- to work with junit5, include: -->
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>0.9</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
