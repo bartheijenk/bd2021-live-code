@@ -1,7 +1,8 @@
 package org.example.firsttaste.slides.h3;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+// JUnit5, maven-surefire recent version needed for maven!
 public class TypesTest {
 
     @Test

@@ -1,19 +1,27 @@
 package org.example.firsttaste;
 
 import org.example.firsttaste.misc.firsttaste.FirstTaste;
+import org.junit.Before;
+import org.junit.Test;
 
+// Junit4 in Junit5 project
 public class FirstTasteTest {
 
-    @org.junit.Test
-    public void testDoeIets() {
+    FirstTaste ft1;
 
-        FirstTaste ft1 = new FirstTaste();
+    @Before
+    public void init() {
+        ft1 = new FirstTaste();
+    }
+
+    @Test
+    public void testDoeIets() {
         ft1.doeIets();
     }
 
-    @org.junit.Test
+    @Test
     public void testDoeIetsAnders() {
-
+        ft1.doeIetsAnders();
     }
 
 }

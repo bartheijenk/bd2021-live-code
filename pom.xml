@@ -15,20 +15,60 @@
         <maven.compiler.release>11</maven.compiler.release>
     </properties>
 
-    <!--    dependency management tool -->
-    <dependencies> <!-- xml tags -->
+    <!-- dependency management tool -->
+    <dependencies>
+        <!-- junit 4: -->
+        <!--
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        -->
+
+        <!-- junit 5: -->
+        <!-- zit al in junit-jupiter-engine:
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- zit al in junit-jupiter-engine:
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-engine</artifactId>
+            <version>1.7.0</version>
+            <scope>test</scope>
+        </dependency>-->
+
+
+        <!--run junit4 with junit5 engine: -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.6.2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
-
-    <!--    build tool-->
+    <!-- build tool -->
     <build>
-
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M1</version>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

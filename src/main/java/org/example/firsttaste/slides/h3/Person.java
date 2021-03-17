@@ -1,9 +1,11 @@
 package org.example.firsttaste.slides.h3;
 
-public class Person {
+public class Person { // superclass
+
+    // public, protected, - (package private), private.
 
     // in this:
-    private String name; // STATE
+    protected String name; // STATE
     private int age;
 
     // access modifiers: public, protected, "" (=package-private), private
@@ -38,11 +40,11 @@ public class Person {
         return this.age;
     }
 
-    public void haveBirthday(){
+    public void haveBirthday() {
         age++;
     }
 
-    public void haveBirthday(int i){
+    public void haveBirthday(int i) {
         age = age + i;
     }
 
