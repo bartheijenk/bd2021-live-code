@@ -31,7 +31,6 @@ public class TryWithResources {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-
     }
 
     private BufferedReader createReader(String resourceFileName) {

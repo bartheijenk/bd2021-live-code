@@ -8,97 +8,18 @@
     <artifactId>bd2021-live-code</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>blok1</module>
+    </modules>
+
     <properties>
         <junit.version>4.13.2</junit.version>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
-    <!-- dependency management tool -->
-    <dependencies>
-        <!-- junit 4: -->
-        <!--
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        -->
 
-        <!-- junit 5: -->
-        <!-- zit al in junit-jupiter-engine:
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>-->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- zit al in junit-jupiter-engine:
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-engine</artifactId>
-            <version>1.7.0</version>
-            <scope>test</scope>
-        </dependency>-->
-
-
-        <!--run junit4 with junit5 engine: -->
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>5.6.2</version>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
-
-    <!-- build tool -->
-    <build>
-        <plugins>
-            <!-- to run junit 5 tests with maven, use newer version of surefire: -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M1</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>1.5.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>mutationCoverage</goal>
-                        </goals>
-                        <phase>test</phase>
-                    </execution>
-                </executions>
-                <configuration>
-                    <targetClasses>
-                        <param>org.example.*</param>
-                    </targetClasses>
-                    <targetTests>
-                        <param>org.example.*</param>
-                    </targetTests>
-                </configuration>
-                <dependencies>
-                    <!-- to work with junit5, include: -->
-                    <dependency>
-                        <groupId>org.pitest</groupId>
-                        <artifactId>pitest-junit5-plugin</artifactId>
-                        <version>0.9</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
