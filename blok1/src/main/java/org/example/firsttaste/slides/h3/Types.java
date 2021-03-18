@@ -95,9 +95,12 @@ public class Types {
         System.out.println(p == p2); // waardes vergelijken
         if (p.equals(p2)) { // inhoud van twee objecten vergelijken
             System.out.println("gelijk");
+            return; // jump from this method back to caller.
         } else {
             System.out.println("ongelijk");
         }
+
+        System.out.println("Iets anders");
     }
 
 }
