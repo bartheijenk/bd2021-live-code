@@ -6,14 +6,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArrayDemo {
-
+    // C+S+ - collapse all
+    // C+S+ + expand all
     public static void main(String[] args) {
-        basics();
-        sameWithArrayList();
-        arrayOfObjects();
-        multi1();
+        // C+- collapse (current)
+
+        // basics();
+        // sameWithArrayList();
+        // arrayOfObjects();
+        // multi1();
         multi2();
-        varArgs();
+        // varArgs();
     }
 
     private static void basics() {
@@ -89,7 +92,7 @@ public class ArrayDemo {
         System.out.println(table);
         System.out.println(table[0]);
         System.out.println(table[0][2]);
-        System.out.println(Arrays.toString(table));
+        System.out.println(Arrays.toString(table));  // utility class
         System.out.println(Arrays.toString(table[0]));
     }
 
