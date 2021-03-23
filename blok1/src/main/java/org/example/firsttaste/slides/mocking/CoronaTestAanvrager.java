@@ -35,12 +35,4 @@ public class CoronaTestAanvrager {
     String showBSN(String input) {
         return "Uw BSN is: " + input;
     }
-
-    public void setScanner(ScannerWrapper scanner) {
-        this.scanner = scanner;
-    }
-
-    public void setSout(SoutWrapper sout) {
-        this.sout = sout;
-    }
 }

@@ -3,32 +3,41 @@ package org.example.firsttaste.slides.mocking;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class CoronaTestAanvragerTest {
 
     private ArgumentCaptor<String> stringArg;
     private ArgumentCaptor<Integer> intArg;
 
+    @Mock
+    private ScannerWrapper scannerWrapperMock;
+
+    @Mock
+    private SoutWrapper soutMock;
+
+    @InjectMocks
     private CoronaTestAanvrager target;
-    private ScannerWrapper scannerWrapperMock = Mockito.mock(ScannerWrapper.class);
-    private SoutWrapper soutMock = Mockito.mock(SoutWrapper.class);
 
     @BeforeEach
     void setUp() {
         stringArg = ArgumentCaptor.forClass(String.class);
         intArg = ArgumentCaptor.forClass(Integer.class);
+    }
 
-        // target aanmaken en dependencies erop zetten:
-        target = new CoronaTestAanvrager();
-        target.setScanner(scannerWrapperMock);
-        target.setSout(soutMock);
+    @Test
+    void whenStartThenScannerAndSoutAreCalled() {
+        // given
 
         // mocks programmeren:
         when(scannerWrapperMock.nextLine()).thenReturn("1234"); // fluent API
@@ -36,11 +45,6 @@ class CoronaTestAanvragerTest {
         // when(soutMock.print()).thenReturn(???); // not working: void returns nothing
         doNothing().when(soutMock).print(stringArg.capture());
         doNothing().when(soutMock).println(stringArg.capture());
-    }
-
-    @Test
-    void whenStartThenScannerAndSoutAreCalled() {
-        // given
 
         // when
         target.start();
