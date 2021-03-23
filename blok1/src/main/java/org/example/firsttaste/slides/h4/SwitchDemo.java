@@ -40,13 +40,13 @@ public class SwitchDemo {
         return result;
     }
 
-    public String demoSwitchExpression(int i) {
-        return switch (i) {
-            case 1 -> EEN;
-            case 2 -> TWEE;
-            case 3, 4, 5 -> DRIE_OF_VIER_OF_VIJF;
-            default -> IETS_ANDERS;
-        };
-    }
+    // public String demoSwitchExpression(int i) {
+    //     return switch (i) {
+    //         case 1 -> EEN;
+    //         case 2 -> TWEE;
+    //         case 3, 4, 5 -> DRIE_OF_VIER_OF_VIJF;
+    //         default -> IETS_ANDERS;
+    //     };
+    // }
 
 }
