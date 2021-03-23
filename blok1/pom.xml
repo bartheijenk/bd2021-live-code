@@ -83,14 +83,14 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.5.2</version>
-                <executions>
+                <!--<executions>
                     <execution>
                         <goals>
                             <goal>mutationCoverage</goal>
                         </goals>
                         <phase>test</phase>
                     </execution>
-                </executions>
+                </executions>-->
                 <configuration>
                     <targetClasses>
                         <param>org.example.*</param>
