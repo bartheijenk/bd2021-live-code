@@ -40,6 +40,7 @@ public class SwitchDemo {
         return result;
     }
 
+    // java >= 14 needed:
     // public String demoSwitchExpression(int i) {
     //     return switch (i) {
     //         case 1 -> EEN;
