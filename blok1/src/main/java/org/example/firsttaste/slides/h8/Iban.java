@@ -2,7 +2,7 @@ package org.example.firsttaste.slides.h8;
 
 import java.util.Objects;
 
-public class Iban {
+public class Iban extends BankNumber {
 
     // NL89RABO0315044462
     public final String landcode;

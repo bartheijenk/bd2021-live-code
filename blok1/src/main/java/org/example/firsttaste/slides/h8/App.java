@@ -2,6 +2,7 @@ package org.example.firsttaste.slides.h8;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 public class App {
 
@@ -10,25 +11,71 @@ public class App {
     }
 
     private void start() {
-        Iban vanBram = Iban.of("NL89", "RABO0", "315044462");
-        System.out.println(vanBram);
+        Iban someIban = Iban.of("NL89", "RABO0", "315044462");
+        System.out.println(someIban);
 
         String name1 = Iban.class.getName();
-        String name = vanBram.getClass().getName();
+        String name = someIban.getClass().getName();
         System.out.println(name1);
         System.out.println(name);
 
-        Field[] fields = vanBram.getClass().getFields();
-        for (Field field : fields) {
-            System.out.print(field.getType());
-            System.out.println(field.getName());
-        }
+        Class<? extends Iban> classOfSomeIban = someIban.getClass();
+        showFieldsOf(classOfSomeIban);
+        showMethodsOf(classOfSomeIban);
+    }
 
-        for (Method declaredMethod : vanBram.getClass().getDeclaredMethods()) {
+    private void showFieldsOf(Class<? extends Iban> clazz) {
+        Field[] fieldsOfSomeIban = clazz.getFields();
+        System.out.printf("%s's fields: ---------------- %n", clazz.getSimpleName());
+        for (Field field : fieldsOfSomeIban) {
+            System.out.println(Modifier.toString(field.getModifiers()) + " " + field.getType().getSimpleName() + " " + field.getName());
+        }
+    }
+
+    private void showMethodsOf(Class<? extends Iban> clazz) {
+        System.out.printf("%s's methods: --------------- %n", clazz.getSimpleName());
+        for (Method declaredMethod : clazz.getDeclaredMethods()) {
             System.out.println(declaredMethod);
-            if (declaredMethod.isAnnotationPresent(Override.class)) { // wil not work: Override is not retained in runtime
-                System.out.printf("%s is overriden! %n", declaredMethod.getName());
+
+            // if (declaredMethod.isAnnotationPresent(Override.class)) { // will not work: Override is not retained in runtime
+            //     System.out.printf("%s is overriden! %n", declaredMethod.getName());
+            // }
+
+            Class<?> superclass = clazz.getSuperclass();
+
+            outerLoop:
+            while (superclass != null) {
+                for (Method superMethod : superclass.getDeclaredMethods()) {
+                    if (isOverridden(declaredMethod, superMethod)) {
+                        System.out.printf("\t this method overrides %s from class %s! \n", declaredMethod.getName(), superclass.getSimpleName());
+                        break outerLoop;
+                    }
+                }
+                superclass = superclass.getSuperclass();
             }
         }
+    }
+
+    private boolean isOverridden(Method declaredMethod, Method superMethod) {
+        // method name
+        if (!superMethod.getName().equals(declaredMethod.getName())) {
+            return false;
+        }
+
+        var declaredMethodParameterTypes = declaredMethod.getParameterTypes();
+        var superMethodParameterTypes = superMethod.getParameterTypes();
+
+        // number of parameters
+        if (superMethodParameterTypes.length != declaredMethodParameterTypes.length) {
+            return false;
+        }
+
+        // types of parameters
+        for (int i = 0; i < superMethodParameterTypes.length; i++) {
+            if (!superMethodParameterTypes[i].equals(declaredMethodParameterTypes[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 }
