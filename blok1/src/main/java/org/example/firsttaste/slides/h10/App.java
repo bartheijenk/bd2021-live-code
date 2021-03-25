@@ -19,13 +19,14 @@ public class App {
     }
 
     private void start() throws InterruptedException {
-        List<Moveable> characters = List.of(new Animal("Bobby"), new Cop("Harry", 200), new Robot("C3PO"), new Animal("Cat"), new Plane(), new Tank());
+        List<Renderable> characters = List.of(new Animal("Bobby"), new Cop("Harry", 200), new Robot("C3PO"), new Animal("Cat"), new Plane("747"), new Tank("LEO"));
 
         int frame = 0;
         while (frame < 10) {
-            for (Moveable character : characters) {
+            System.out.println();
+            for (Renderable character : characters) {
                 character.move(new Random().nextInt(10));
-                System.out.println(character);
+                System.out.println(character.showMe());
             }
             Thread.sleep(500);
 
@@ -36,8 +37,8 @@ public class App {
 
     }
 
-    private void newFeature(List<Moveable> characters) {
-        for (Moveable character : characters) {
+    private void newFeature(List<Renderable> characters) {
+        for (Renderable character : characters) {
             if (character instanceof Enemy) {
                 Enemy e = (Enemy) character;
                 e.eat();

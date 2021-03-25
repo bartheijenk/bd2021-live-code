@@ -8,10 +8,7 @@ public class Animal extends Character {
 
     @Override
     public String toString() {
-        return "Animal    " + super.toString();
+        return "\uD83D\uDC3A" + super.toString();
     }
 
-    @Override String showMe() {
-        return toString();
-    }
 }

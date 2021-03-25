@@ -11,18 +11,16 @@ public class Cop extends Character implements Enemy, Comparable<Cop> {
 
     @Override
     public String toString() {
-        return "Cop       " + super.toString();
+        return "\uD83D\uDC6E" + super.toString();
     }
 
-    @Override String showMe() {
-        return toString();
+    @Override
+    public int compareTo(Cop o) {
+        return this.ammo - o.ammo;
     }
 
-    @Override public int compareTo(Cop o) {
-        return 0;
-    }
-
-    @Override public void attack() {
-
+    @Override
+    public void attack() {
+        System.out.println("Pang! Pang!");
     }
 }

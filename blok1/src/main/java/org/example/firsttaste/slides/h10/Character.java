@@ -1,6 +1,6 @@
 package org.example.firsttaste.slides.h10;
 
-public abstract class Character implements Moveable {
+public abstract class Character implements Renderable {
 
     protected int position;
     private String name;
@@ -11,13 +11,16 @@ public abstract class Character implements Moveable {
 
     @Override
     public String toString() {
-        return name + ">".repeat(position);
+        return path(position, name);
     }
 
     public void move(int pos) { // HOE moet ie het doen?
         this.position += pos;
     }
 
-    abstract String showMe();
+    @Override
+    public String showMe() {
+        return toString();
+    }
 
 }

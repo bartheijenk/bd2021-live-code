@@ -1,10 +1,15 @@
 package org.example.firsttaste.slides.h10.thirdparty;
 
-import org.example.firsttaste.slides.h10.Moveable;
+import org.example.firsttaste.slides.h10.Renderable;
 
-public class Plane implements Moveable {
+public class Plane implements Renderable {
 
     private int pos;
+    private String name;
+
+    public Plane(String name) {
+        this.name = name;
+    }
 
     @Override
     public void move(int i) {
@@ -12,9 +17,8 @@ public class Plane implements Moveable {
     }
 
     @Override
-    public String toString() {
-        return "Plane{" +
-                "pos=" + pos +
-                '}';
+    public String showMe() {
+        return "✈" + path(pos, name);
     }
+
 }

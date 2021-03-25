@@ -8,10 +8,7 @@ public class Robot extends Character {
 
     @Override
     public String toString() {
-        return "Robot     " + super.toString();
+        return "\uD83E\uDD16" + super.toString();
     }
 
-    @Override String showMe() {
-        return toString();
-    }
 }
