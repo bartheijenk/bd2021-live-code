@@ -2,7 +2,7 @@ package org.example.firsttaste.slides.h8;
 
 import java.util.Objects;
 
-public class Iban extends BankNumber {
+public class Iban extends BankNumber implements Comparable<Iban> {
 
     // NL89RABO0315044462
     public final String landcode;
@@ -49,4 +49,27 @@ public class Iban extends BankNumber {
                 ", rekeningnummer='" + rekeningnummer + '\'' +
                 '}';
     }
+
+    @Override
+    public int compareTo(Iban other) {
+        // when is this greater than, equal to or smaller than other?
+
+        // if greater, then return a positive int
+        if (Integer.parseInt(this.rekeningnummer) > Integer.parseInt(other.rekeningnummer)) {
+            return 1;
+        }
+
+        // if equal, then return 0
+        if (Integer.parseInt(this.rekeningnummer) == Integer.parseInt(other.rekeningnummer)) {
+            return 0;
+        }
+
+        // if smaller, then return a negative int
+        if (Integer.parseInt(this.rekeningnummer) < Integer.parseInt(other.rekeningnummer)) {
+            return -1;
+        }
+
+        return 0;
+    }
+
 }

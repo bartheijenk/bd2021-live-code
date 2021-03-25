@@ -3,6 +3,9 @@ package org.example.firsttaste.slides.h8;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class App {
 
@@ -22,6 +25,14 @@ public class App {
         Class<? extends Iban> classOfSomeIban = someIban.getClass();
         showFieldsOf(classOfSomeIban);
         showMethodsOf(classOfSomeIban);
+
+        Iban someIban2 = Iban.of("NL89", "RABO0", "415044462");
+        Iban someIban3 = Iban.of("NL89", "RABO0", "215044462");
+        Iban someIban4 = Iban.of("NL89", "RABO0", "015044462");
+
+        List<Iban> ibanList = Arrays.asList(someIban, someIban2, someIban3, someIban4);
+        Collections.sort(ibanList);
+        System.out.println(ibanList.toString());
     }
 
     private void showFieldsOf(Class<? extends Iban> clazz) {
