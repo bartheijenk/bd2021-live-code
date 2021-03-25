@@ -21,6 +21,21 @@ public class Tank implements Enemy, Renderable {
 
     @Override
     public String showMe() {
-        return "\uD83D\uDE97" + path(pos, name);
+        return getIcon() + path(pos, name);
+    }
+
+    @Override
+    public String toString() {
+        return getIcon() + name;
+    }
+
+    @Override
+    public int getPosition() {
+        return pos;
+    }
+
+    @Override
+    public String getIcon() {
+        return "\uD83D\uDE97";
     }
 }

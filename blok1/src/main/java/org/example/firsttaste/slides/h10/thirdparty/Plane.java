@@ -18,7 +18,21 @@ public class Plane implements Renderable {
 
     @Override
     public String showMe() {
-        return "✈" + path(pos, name);
+        return getIcon() + path(pos, name);
     }
 
+    @Override
+    public int getPosition() {
+        return pos;
+    }
+
+    @Override
+    public String getIcon() {
+        return "✈";
+    }
+
+    @Override
+    public String toString() {
+        return getIcon() + name;
+    }
 }

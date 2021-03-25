@@ -3,7 +3,7 @@ package org.example.firsttaste.slides.h10;
 public abstract class Character implements Renderable {
 
     protected int position;
-    private String name;
+    protected String name;
 
     public Character(String n) {
         this.name = n;
@@ -11,7 +11,7 @@ public abstract class Character implements Renderable {
 
     @Override
     public String toString() {
-        return path(position, name);
+        return getIcon() + name;
     }
 
     public void move(int pos) { // HOE moet ie het doen?
@@ -20,7 +20,11 @@ public abstract class Character implements Renderable {
 
     @Override
     public String showMe() {
-        return toString();
+        return getIcon() + path(position, name);
     }
 
+    @Override
+    public int getPosition() {
+        return position;
+    }
 }

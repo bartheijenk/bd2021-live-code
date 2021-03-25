@@ -15,4 +15,8 @@ public interface Renderable {
         return ">".repeat(position) + name;
     }
 
+    int getPosition();
+
+    String getIcon();
+
 }

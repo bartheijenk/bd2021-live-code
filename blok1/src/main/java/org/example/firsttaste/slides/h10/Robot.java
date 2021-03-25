@@ -7,8 +7,8 @@ public class Robot extends Character {
     }
 
     @Override
-    public String toString() {
-        return "\uD83E\uDD16" + super.toString();
+    public String getIcon() {
+        return "\uD83E\uDD16";
     }
 
 }
