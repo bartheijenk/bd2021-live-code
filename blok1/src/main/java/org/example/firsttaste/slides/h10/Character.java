@@ -1,16 +1,23 @@
 package org.example.firsttaste.slides.h10;
 
-public class Character implements Moveable {
+public abstract class Character implements Moveable {
 
     protected int position;
+    private String name;
+
+    public Character(String n) {
+        this.name = n;
+    }
 
     @Override
     public String toString() {
-        return ">".repeat(position);
+        return name + ">".repeat(position);
     }
 
-    public void move(int pos) {
+    public void move(int pos) { // HOE moet ie het doen?
         this.position += pos;
     }
+
+    abstract String showMe();
 
 }
