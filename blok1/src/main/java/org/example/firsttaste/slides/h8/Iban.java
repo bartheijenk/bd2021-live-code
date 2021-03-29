@@ -50,6 +50,10 @@ public class Iban extends BankNumber implements Comparable<Iban> {
                 '}';
     }
 
+    public String getBankcode() {
+        return bankcode;
+    }
+
     @Override
     public int compareTo(Iban other) {
         // when is this greater than, equal to or smaller than other?

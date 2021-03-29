@@ -5,7 +5,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import static java.util.Comparator.comparing;
 
 public class App {
 
@@ -33,6 +36,11 @@ public class App {
         List<Iban> ibanList = Arrays.asList(someIban, someIban2, someIban3, someIban4);
         Collections.sort(ibanList);
         System.out.println(ibanList.toString());
+
+        Comparator<Iban> ibanComparator = (iban, otherIban) -> (iban.bankcode).compareTo(otherIban.bankcode);
+        Collections.sort(ibanList, ibanComparator);
+        ibanList.sort(comparing(Iban::getBankcode)); // functional style code
+        System.out.println(ibanList.toString());
     }
 
     private void showFieldsOf(Class<? extends Iban> clazz) {
@@ -48,22 +56,22 @@ public class App {
         for (Method declaredMethod : clazz.getDeclaredMethods()) {
             System.out.println(declaredMethod);
 
-            // if (declaredMethod.isAnnotationPresent(Override.class)) { // will not work: Override is not retained in runtime
-            //     System.out.printf("%s is overriden! %n", declaredMethod.getName());
-            // }
-
-            Class<?> superclass = clazz.getSuperclass();
-
-            outerLoop:
-            while (superclass != null) {
-                for (Method superMethod : superclass.getDeclaredMethods()) {
-                    if (isOverridden(declaredMethod, superMethod)) {
-                        System.out.printf("\t this method overrides %s from class %s! \n", declaredMethod.getName(), superclass.getSimpleName());
-                        break outerLoop;
-                    }
-                }
-                superclass = superclass.getSuperclass();
+            if (declaredMethod.isAnnotationPresent(Override.class)) { // will not work: Override is not retained in runtime
+                System.out.printf("%s is overriden! %n", declaredMethod.getName());
             }
+
+            // Class<?> superclass = clazz.getSuperclass();
+            //
+            // outerLoop:
+            // while (superclass != null) {
+            //     for (Method superMethod : superclass.getDeclaredMethods()) {
+            //         if (isOverridden(declaredMethod, superMethod)) {
+            //             System.out.printf("\t this method overrides %s from class %s! \n", declaredMethod.getName(), superclass.getSimpleName());
+            //             break outerLoop;
+            //         }
+            //     }
+            //     superclass = superclass.getSuperclass();
+            // }
         }
     }
 
