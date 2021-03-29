@@ -1,6 +1,6 @@
-package org.example.firsttaste.slides.h10;
+package org.example.firsttaste.slides.h10.game;
 
-import org.example.firsttaste.slides.h10.thirdparty.Plane;
+import org.example.firsttaste.slides.h10.game.thirdparty.Plane;
 
 import java.util.Comparator;
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
-        Character c = new Animal("X");
-        System.out.println(c.toString()); // most specific impl. is used; dynamic binding
-        c = new Robot("Y");
-        System.out.println(c.toString()); // most specific impl. is used; dynamic binding
+        // Character c = new Animal("X");
+        // System.out.println(c.toString()); // most specific impl. is used; dynamic binding
+        // c = new Robot("Y");
+        // System.out.println(c.toString()); // most specific impl. is used; dynamic binding
 
         // while (true) {
         new App().start();

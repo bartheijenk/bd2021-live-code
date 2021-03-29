@@ -1,4 +1,4 @@
-package org.example.firsttaste.slides.h10;
+package org.example.firsttaste.slides.h10.game;
 
 public class Cop extends Character implements Enemy, Comparable<Cop> {
 

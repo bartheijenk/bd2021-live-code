@@ -1,6 +1,6 @@
-package org.example.firsttaste.slides.h10.thirdparty;
+package org.example.firsttaste.slides.h10.game.thirdparty;
 
-import org.example.firsttaste.slides.h10.Renderable;
+import org.example.firsttaste.slides.h10.game.Renderable;
 
 public class Plane implements Renderable {
 

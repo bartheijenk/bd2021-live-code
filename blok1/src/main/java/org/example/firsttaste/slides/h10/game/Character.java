@@ -1,4 +1,4 @@
-package org.example.firsttaste.slides.h10;
+package org.example.firsttaste.slides.h10.game;
 
 public abstract class Character implements Renderable {
 
