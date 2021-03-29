@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorUtil {
-    public String showAuthorsOnClass(Class c) {
+    public String showAuthorOnClass(Class c) {
         if (c.isAnnotationPresent(Author.class)) {
             Author a = (Author) c.getAnnotation(Author.class);
             return a.value();
