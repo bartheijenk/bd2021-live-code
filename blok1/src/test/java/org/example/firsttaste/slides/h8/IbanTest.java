@@ -35,7 +35,7 @@ class IbanTest {
         ibans.add(vanBram2);
         ibans.add(vanJan);
 
-        assertThat(ibans.size()).isEqualTo(2);
+        assertThat(ibans.size()).isEqualTo(3);
     }
 
     @Disabled // TODO: move to other test
