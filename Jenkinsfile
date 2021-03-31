@@ -21,7 +21,7 @@ tools {
         }
         stage('Test') {
             steps {
-                sh 'mvn resources:testResources surefire:test'
+                sh 'mvn compiler:testCompile surefire:test'
             }
             post {
                 always {
