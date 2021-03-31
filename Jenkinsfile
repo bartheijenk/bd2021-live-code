@@ -21,7 +21,7 @@ tools {
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn surefire:test'
             }
             post {
                 always {
@@ -31,7 +31,7 @@ tools {
         }
         stage('Package') {
             steps {
-             sh 'mvn -B -DskipTests clean package'
+             sh 'mvn jar:jar'
 
             }
             post {
