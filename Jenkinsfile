@@ -16,7 +16,7 @@ tools {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
@@ -29,10 +29,16 @@ tools {
                 }
             }
         }
-        stage('Deliver') {
+        stage('Package') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+             sh 'mvn -B -DskipTests clean package'
+
             }
+            post {
+            always {
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+
+            }}
         }
     }
 }
