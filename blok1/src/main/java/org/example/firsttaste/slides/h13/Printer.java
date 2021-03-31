@@ -2,8 +2,15 @@ package org.example.firsttaste.slides.h13;
 
 import java.util.List;
 
-// Producer Extends, Consumer Super (PECS)
 public class Printer {
+    // How to define your own generic methods?
+
+    public <T> void print(T t) {
+        System.out.println(t);
+    }
+
+    // Co and contravariant: -----------------------------------
+    // Producer Extends, Consumer Super (PECS)
 
     // Extends = producer = read only, no write.
     // type parameter declaratie, must "be a" number

@@ -15,7 +15,7 @@ public class PrinterApp {
         // Primitive types not allowed as generic type argument:
         // List<int> list = new ArrayList<>();
 
-        List<Object> objectList = new ArrayList<>(Arrays.asList(1, "", new Person()));
+        Printer p = new Printer();
 
         List<Number> numberList = new ArrayList<>(Arrays.asList(5, 9L, 10d, 11f));
 
@@ -23,11 +23,9 @@ public class PrinterApp {
         List<Long> longList = List.of(1L, 2L, 3L);
         List<Integer> integerList = List.of(5, 6, 7);
 
-        for (Double aDouble : doubleList) {
-
-        }
-
-        Printer p = new Printer();
+        p.<Person>print(new Person());
+        p.<Integer>print(new Integer(1));
+        p.<Long>print(new Long(1));
 
         // covariant: all subtypes of Number and Number itself can be used as T in List<T>, so
         // - List<Integer>,
@@ -41,7 +39,7 @@ public class PrinterApp {
         // contravariant: only supertypes of Number and Number itself can be passed as T in List<T>, so only
         // - List<Number> and
         // - List<Object>
-        p.printContra(objectList);
+        // p.printContra(objectList);
         p.printContra(numberList);
     }
 
