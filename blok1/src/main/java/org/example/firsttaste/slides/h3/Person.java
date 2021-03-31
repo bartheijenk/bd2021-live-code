@@ -1,6 +1,8 @@
 package org.example.firsttaste.slides.h3;
 
-public class Person { // superclass
+import org.example.firsttaste.slides.h10.game.Robot;
+
+public class Person implements Comparable<Robot> { // superclass
 
     // public, protected, - (package private), private.
 
@@ -46,6 +48,10 @@ public class Person { // superclass
 
     public void haveBirthday(int i) {
         age = age + i;
+    }
+
+    @Override public int compareTo(Robot o) {
+        return 0;
     }
 
     // ...

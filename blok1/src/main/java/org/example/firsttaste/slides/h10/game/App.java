@@ -32,7 +32,7 @@ public class App {
 
         Thread.sleep(1000);
 
-        List<Renderable> characters = List.of(new Animal("Bobby"), new Cop("Harry", 200), new Robot("C3PO"), new Animal("Cat"), new Plane("747"), new Tank("LEO"));
+        List<Renderable> characters = List.of(new MyChar(), new Animal("Bobby"), new Cop("Harry", 200), new Robot("C3PO"), new Animal("Cat"), new Plane("747"), new Tank("LEO"));
 
         int frame = 0;
         while (frame < 10) {
