@@ -16,12 +16,12 @@ tools {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn compiler:testCompile surefire:test'
+                sh 'mvn test'
             }
             post {
                 always {
